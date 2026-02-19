@@ -2,7 +2,7 @@
 import express from 'express';
 
 // Importa a função createUser do arquivo userController.js, que é responsável por lidar com a lógica de criação de usuários.
-import { createUser, getAllUsers, deleteUser } from './controllers/userController.js';
+import { createUser, getAllUsers, deleteUser } from '../controllers/userController.js';
 
 const router = express.Router(); // Cria um roteador usando o método Router do Express, que permite definir rotas para a aplicação de forma modularizada.
 

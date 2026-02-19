@@ -1,8 +1,8 @@
 // importa o express sendo um framework para Node.js usado para criar servidores web e APIs. Fornecendo uma estrutura robusta e flexível para lidar com rotas, requisições e respostas HTTP.
 import express, { Router } from 'express';
 
-import userRoutes from './routes.js'; // Importa as rotas de usuários do arquivo routes.js
-import productRoutes from './routes.js'; // Importa as rotas de produtos do arquivo routes.js
+import userRoutes from './routes/routes.js'; // Importa as rotas de usuários do arquivo routes.js
+import productRoutes from './routes/routes.js'; // Importa as rotas de produtos do arquivo routes.js
 
 // Toda vez que eu quiser usar o express, basta chamar o 'app'
 const app = express(); 
