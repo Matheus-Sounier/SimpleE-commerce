@@ -3,7 +3,7 @@ services:
   postgres:
     image: postgres:alpine3.22
     container_name: ${POSTGRES_CONTAINER_NOME}
-    restart: unless-stopped # Se o container parar, ele restarta
+    restart: unless-stopped
     en_file: .env
     enviromnment:
       POSTGRES_USER: ${POSTGRES_USER} 
@@ -25,12 +25,14 @@ services:
 
     # Hora do backend
   api: 
+    # Vai construir a imagem do Docker a partir do Dockerfile localizado no diretório ./api
     build:
-      context: ./api # 
+      context: ./api # Contexto é onde o Dockerfile está localizado
     container_name: ${API_CONTAINER_NAME}
     restart: unless-stopped
     env_file: .env
     environment:
+      # DATABASE_URL é a variável de ambiente que a aplicação vai usar para se conectar ao banco de dados
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${POSTGRES_DB}
       NODE_ENV: ${NODE_ENV}
     ports:
